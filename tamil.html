@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For noodles manda🎉</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Caveat:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+ <style>
+:root{
+    --paper:   #F7EFE4;
+    --paper-2: #F1E4D4;
+    --ink:     #2B1116;
+    --wine:    #7A2E38;
+    --gold:    #B8863B;
+    --blush:   #E8B4B8;
+    --shadow:  rgba(43,17,22,0.18);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{ font-family:'Playfair Display', serif; margin:0; }
+  .script{ font-family:'Caveat', cursive; }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:2000;
+    opacity:.05;
+    background-image:radial-gradient(circle, #000 1px, transparent 1px);
+    background-size:3px 3px;
+  }
+
+  #hearts{ position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+  .drift{
+    position:absolute; bottom:-40px;
+    font-size:1.1rem;
+    color:var(--blush);
+    opacity:.55;
+    animation:rise linear infinite;
+  }
+  @keyframes rise{
+    0%   { transform:translateY(0) rotate(0deg); opacity:0; }
+    10%  { opacity:.6; }
+    100% { transform:translateY(-110vh) rotate(25deg); opacity:0; }
+  }
+
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:8vh 6vw;
+    z-index:2;
+  }
+  .eyebrow{
+    font-family:'Caveat', cursive;
+    font-size:1.5rem;
+    color:var(--wine);
+    margin-bottom:.25rem;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5rem);
+    font-weight:700;
+    color:var(--ink);
+    line-height:1.05;
+  }
+  .hero h1 em{ font-style:italic; color:var(--wine); }
+  .hero p.lead{
+    margin-top:1rem;
+    font-size:1.05rem;
+    color:var(--ink);
+    opacity:.75;
+  }
+
+  .counter{
+    margin-top:3rem;
+    display:flex;
+    align-items:flex-end;
+    gap:clamp(.6rem, 2.5vw, 1.6rem);
+  }
+  .counter .unit{ display:flex; flex-direction:column; align-items:center; }
+  .counter .num{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:clamp(2.1rem, 6vw, 3.6rem);
+    color:var(--wine);
+    min-width:1.6em;
+    line-height:1;
+    font-variant-numeric: tabular-nums;
+  }
+  .counter .label{
+    margin-top:.4rem;
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    opacity:.6;
+  }
+  .counter .heart-sep{
+    color:var(--blush);
+    font-size:1.4rem;
+    padding-bottom:1.6rem;
+  }
+
+  .scrolldown{
+    margin-top:4rem;
+    font-family:'Caveat', cursive;
+    font-size:1.2rem;
+    color:var(--gold);
+    display:flex; flex-direction:column; align-items:center; gap:.3rem;
+    animation:bob 2.4s infinite;
+  }
+  @keyframes bob{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(8px); }
+  }
+
+  /* memory cards */
+  .memory-section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:3rem 1rem;
+    background:var(--paper-2);
+  }
+  .memory-card{
+    background:linear-gradient(135deg, var(--paper), var(--blush));
+    padding:2rem;
+    border-radius:12px;
+    box-shadow:0 6px 20px var(--shadow);
+    max-width:500px;
+    text-align:center;
+    margin:2rem 0;
+  }
+  .memory-card .date{
+    font-size:.9rem;
+    color:var(--wine);
+    margin-bottom:.5rem;
+    letter-spacing:.05em;
+  }
+    .memory-card h3{
+    font-family:'Playfair Display', serif;
+    font-size:1.6rem;
+    margin:.5rem 0;
+    color:var(--wine);
+  }
+  .memory-card p{
+   font-family:'Caveat', cursive;
+    font-size:1.1rem;
+    color:var(--wine);
+    margin-top:1rem;
+  }
+  .memory-card h2{
+    font-family:'Playfair Display', serif;
+    font-size:1.6rem;
+    margin:.5rem 0;
+    color:var(--wine);
+  }
+  .memory-card p{
+    font-size:1rem;
+    margin:1rem 0;
+    line-height:1.5;
+  }
+  .memory-card .quote{
+    font-family:'Caveat', cursive;
+    font-size:1.2rem;
+    color:var(--ink);
+    margin:1rem 0;
+  }
+  .memory-card .signature{
+    font-family:'Caveat', cursive;
+    font-size:1.1rem;
+    color:var(--wine);
+    margin-top:1rem;
+  }
+   /* FLOATING PHOTOS */
+
+.floating-photo {
+    position: absolute;
+
+    width: 130px;
+    height: auto;
+
+    object-fit: box-cover;
+
+    border: 6px solid white;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.25);
+
+    z-index: 10;
+
+    transition: 0.4s;
+}
+
+
+
+/* PHOTO 1 */
+
+.photo-1 {
+    left: 8%;
+    top: 100px;
+
+    transform: rotate(-15deg);
+
+    animation: floatPhoto1 5s ease-in-out infinite;
+}
+
+
+/* PHOTO 2 */
+
+.photo-2 {
+    right: 8%;
+    top: 180px;
+
+    transform: rotate(10deg);
+
+    animation: floatPhoto2 6s ease-in-out infinite;
+}
+
+
+/* PHOTO 3 */
+
+.photo-3 {
+    left: 12%;
+    bottom: 60px;
+
+    transform: rotate(8deg);
+
+    animation: floatPhoto3 5.5s ease-in-out infinite;
+}
+
+
+/* PHOTO 4 */
+
+.photo-4 {
+    right: 12%;
+    top: 650px;
+
+    transform: rotate(-12deg);
+
+    animation: floatPhoto4 6.5s ease-in-out infinite;
+}
+.photo-5 {
+    right: 12%;
+    top: 650px;
+
+    transform: rotate(-12deg);
+
+    animation: floatPhoto4 6.5s ease-in-out infinite;
+}
+
+
+
+/* HOVER */
+
+.floating-photo:hover {
+    transform: scale(1.15) rotate(0deg);
+
+    z-index: 20;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35);
+}
+
+
+/* PHOTO ANIMATIONS */
+
+@keyframes floatPhoto1 {
+
+    0%,100% {
+        transform: translateY(0) rotate(-15deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(-10deg);
+    }
+
+}
+
+
+@keyframes floatPhoto2 {
+
+    0%,100% {
+        transform: translateY(0) rotate(10deg);
+    }
+
+    50% {
+        transform: translateY(20px) rotate(15deg);
+    }
+
+}
+
+
+@keyframes floatPhoto3 {
+
+    0%,100% {
+        transform: translateY(0) rotate(8deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(3deg);
+    }
+
+}
+
+
+@keyframes floatPhoto4 {
+
+    0%,100% {
+        transform: translateY(0) rotate(-12deg);
+    }
+
+    50% {
+        transform: translateY(18px) rotate(-7deg);
+    }
+
+}
+/* ================= FINAL DIARY NOTE ================= */
+
+.final-note {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 100px 20px;
+
+    position: relative;
+}
+
+
+/* Diary Paper */
+
+.diary-paper {
+    width: 650px;
+    max-width: 90%;
+
+    padding: 55px 50px;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.8),
+            rgba(255,255,255,0.8)
+        );
+
+    color: #4a2025;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+
+    position: relative;
+
+    transform: rotate(-1deg);
+}
+
+
+/* Date */
+
+.diary-date {
+    text-align: right;
+
+    font-size: 14px;
+
+    color: #9a5962;
+
+    margin-bottom: 30px;
+}
+
+
+/* Heading */
+
+.diary-paper h2 {
+    text-align: center;
+
+    font-size: 34px;
+
+    margin-bottom: 30px;
+
+    color: #71323b;
+}
+
+
+/* Paragraph */
+
+.diary-paper p {
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    margin-bottom: 22px;
+
+    text-align: left;
+}
+
+
+/* Handwritten style feeling */
+
+.last-message {
+    font-style: italic;
+
+    text-align: center !important;
+
+    margin-top: 30px;
+}
+
+
+/* Line */
+
+.diary-line {
+    width: 80%;
+
+    height: 1px;
+
+    margin: 30px auto;
+
+    background: #c98d96;
+}
+
+
+/* Signature */
+
+.signature-final {
+    margin-top: 35px;
+
+    text-align: right;
+
+    font-style: italic;
+
+    font-size: 16px;
+
+    color: #7a3943;
+}
+</style>
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="eyebrow">For noodles manda🎉</div>
+
+    <h1 id="welcome">Welcome tamil</h1>
+
+    
+   
+    <div class="counter">
+        <div class="unit">
+           <div class="num" id="days">0</div>
+            <div class="label">Days</div>
+        </div>
+
+        <div class="heart-sep">♥</div>
+
+        <div class="unit">
+            <div class="num">99</div>
+            <div class="label">Memories</div>
+        </div>
+    </div>
+
+    <a href="#memories" class="scrolldown">
+        Scroll down ↓
+    </a>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories" class="memory-section">
+   <!-- Floating Photos inside memory section -->
+  <img src="PT1.jpg" class="floating-photo photo-1" alt="Memory Photo">
+  <img src="PT2.jpg" class="floating-photo photo-2" alt="Memory Photo">
+  <img src="PT3.jpg" class="floating-photo photo-3" alt="Memory Photo">
+  <img src="PT4.jpg" class="floating-photo photo-4" alt="Memory Photo">
+    
+
+
+      
+    </div>
+        </div>
+    <div class="memory-card">
+        <div class="date">2026.05.01</div>
+         <h2>Hidden leaf</h2>
+        
+        <p>
+            Naanum paV um mall poitu ungala pakka vathom firs ungala thatividudalamnu tha nenachom but apro eipudiyo meet panna vaathom.Apro engala tea kadiku kutitu poniga antha tea mattama iruthuchu.Aipatha palakkadu trip neega planu potiga.Anaikutha hidden leaf  grb uh aramichom.
+        </p>
+         <div class="signature">
+            — A person you know
+        </div>
+      
+    </div>
+     </div>
+        </div>
+    <div class="memory-card">
+        <div class="date">2026.05.17</div>
+         <h2>Three idiots</h2>
+        
+        <p>
+       Sithiyama sollure naama munu perum senthu other state trip la povomnu nenachukuda pakkala. naa ena nenachena neegala vaara matiga summa plan potu cancel panituvomnu nenachu but eipudinu theriyala vathutiga.Anaiku neegalum naa fist eh vathutom paV late tha vaathaga paV ku revange kudukalmnu nenachom but naamatha ban vagunom. Antha day enaku rombavum puduchu iruthuchu. Athuvum antha train journey tha "en thriyala rombavum emotional🥹 iruthuchu. Nega reduperuim enoda best frd antha moment la iruthu ipa variukum."Enaku railway station munuperum bye sonathu etho last day ine yarum meet pana matom mathri  iruthuchu.Anaikutha avolothan word uh crt achu   
+    </p>
+      
+    <div class="signature">
+            —your frd       
+         </div>
+       </div> 
+       </div>
+     </div>
+      <div class="memory-card">
+        <div class="date">2026.06.06</div>
+         <h2>Home interview</h2>
+        
+        <p>
+         Nega new job kaga interview attend panna ponom athum oru v2ku with samayal araiyoda iruka v2ku ponom.Yarum ithuvaiku interviewku frds ponathe ila.Naamatha kolaruna antha company naamuku mela iruthu "athuvum antha red shirt ave enaku thruchu nit ana batman ahh bart time la work panuvan pola koraga vida mosama thavuran.inoruthe enna na left boutton amiki veladutu iruka".Nallavela neega antha company la joind agala ilana ithumathiri incident daily pakka vediyatha irukum.Apro park ponom unga hand odaika pathe eipothum pola tea kadikaga aalachom, Apro poli saptom athuvum nalla iruthuchu.
+        </p>
+   <div class="quote">
+            "Real friends create memories that never disappear."
+       
+        </div>      
+         </div>
+       </div>
+        </div>
+    <div class="memory-card">
+        <div class="date">2026.06.07</div>
+         <h2>Three idiots part 2</h2>
+        
+        <p>
+         Naa firs eh vaathute ungalukagatha wait romba neramma neega 7clk kutha vaathiga,Naa ungakita fight podalam ungakita pesa kudathunu nenache but ennala eipothu aipudi iruka mudiyala😒. happy street poitu paithiyakarathanama aditu irutho,Paatuku ada sona naama patuku adunom.neega first dance adala naanu paV ungala eipudiyavathu dance ada vachuranunu nenacho,Anaikunu pathu neega pootum vaikama chinatha kammalu potu vathiga etho noivai pata mathiri iruthiga.Mall ku poitu kannamuchilam velandom.last eipothum pola naa avolovuthn nu sone paV naamala antha chetta tea kadaiku kutitu poniga..antha final muduchuchu.
+            </p>
+      
+    <div class="signature">
+            —your frd       
+         </div>
+       </div>
+    
+    <div calsaa="memory-page">
+    <div class="memory-card">
+        <div class="date">2026.08.02</div>
+        <h2>Friendship day</h2>
+        <p>inaikutha intha webdevelopment panna idea vaathuichu,Naa ena plan poturukena naa en bd ku munadi nit ithu ungaluku send pananumnu,But ipave two weeks achu inu eithananal agumne theriyala😢.Eipudiyavathu athukuila muduchuruve.
+        </p>
+    <div class="quote">
+            "Brand new day."
+       
+        </div>  
+            <!-- ================= FINAL NOTE ================= -->
+
+<section class="final-note">
+
+    <div class="diary-paper">
+
+        <div class="diary-date">
+            August 2026
+        </div>
+
+        <h2>
+          Final Note
+        </h2>
+
+        <p>
+        Hlo,Ithu enoda diary ungaloda share panika apro oru thank's solla crt panne,neegalam ithu varaiukum enaku fvt things, toy, gift's and good memories eilam thanthurukiga but naa avoloku return ethuvum thanthathu ila.
+            Ungala mathirina kavitha eluthiyo ila drawing panniyo solla theriyathu atha etho enaku theruchatha vaachu itha crt panne   
+
+        </p>
+        <p>Naa avoluku yarukitaium pesamate naa oru ambivert mathiri irupe,But unga kitalam eipudi pasunene theriyala oru mathiriya differnt ah iruku.
+        
+        </p>
+            <p>
+         Naama enna ennamo loosuthanama paniruko,Maturity meaning eh theriyathu, oru plan pota theriyathu,adu ithu enna pana poromnu thriyathu mukiyama map pakka thriyathu,ennane theriyama fllow la poitu irupe.Jolly ya siruchu pesi happy iruthom...But 
+        </p>
+            <p>
+        Naa ungala neraiya time expect panni iruke,Naa oru plan potu atha panuvom solli torture paniruke.Neega silla neram enkita en pesuiganu kuda feel panirukalam.Enaku ipa theriuthu en naa frds gang iruka mudiyathunu,Naa ethukum set aga mate pola... eilathukum sorry. one piece la oru say iruku       
+         </p>
+    <div class="signature">
+         "A man dies only when people forget him"          
+         </div>
+
+
+        <p>
+          Ahh..ithukaiparam naam pathupomanu thriyala and last oru 👇
+        </p>
+        <section class="final-thankyou">
+
+    <div class="thankyou-card">
+
+        <div class="thankyou-heart">
+
+        </div>
+
+        <h2>Thank You</h2>
+
+       
+
+        <div class="final-signature">
+            — Jeyanth
+        </div>
+
+    </div>
+
+</section>
+
+        <div class="diary-line"></div>
+
+        <p class="last-message">
+            Whatever happens in the future,
+            I hope our friendship always remains
+            a beautiful chapter of our story. ❤️
+        </p>
+
+        <div class="signature-final">
+            — From someone who will always remember these days
+        </div>
+
+    </div>
+
+</section>
+
+
+</script>
+</body>
+</html>
+<script>
+const startDate = new Date("2026-05-01");
+const today = new Date();
+
+const diffTime = today - startDate;
+const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+document.getElementById("days").textContent = days;
+
+const user = localStorage.getItem("loggedUser");
+
+if (user) {
+    document.getElementById("welcome").innerHTML = "Welcome " + user + " ❤️";
+}
+</script>
+
+</body>
+</html>

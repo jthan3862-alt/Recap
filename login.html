@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Login | Time Capsule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Friend Login</h1>
+    <p>Please login to see Beautiful recaps.</p>
+
+    <input type="text" id="username" placeholder="Enter your name">
+    <br><br>
+    <input type="password" id="password" placeholder="Enter your password">
+    <br><br>
+    <button class="magic-btn" onclick="login()">Login</button>
+  </div>
+
+  <script>
+    const users = {
+      "Dhanu": "Dhanu@2003",
+      "pav": "pav@2003",
+      "tamil": "tamil@2003"
+    };
+
+    let attempts = 3;
+
+    function login() {
+      const name = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      const userKey = Object.keys(users).find(
+        u => u.toLowerCase() === name.toLowerCase()
+      );
+
+      if (userKey && users[userKey] === pass) {
+        localStorage.setItem("loggedUser", userKey);
+        window.location.href = userKey.toLowerCase() + ".html";
+      } else {
+        attempts++;
+        if (attempts >= 3) {
+          alert("Too many wrong attempts! Please wait before trying again.");
+          document.getElementById("username").disabled = true;
+          document.getElementById("password").disabled = true;
+        } else {
+          alert("Invalid login. Try again.");
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>
