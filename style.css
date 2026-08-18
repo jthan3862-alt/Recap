@@ -1,245 +1,567 @@
-body { 
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+   ========================================= */
+
+body {
     min-height: 100vh;
+
     overflow-x: hidden;
     overflow-y: auto;
+
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
+
     font-family: 'Poppins', Arial, sans-serif;
-    background: url("webiml2.jpg") no-repeat center center fixed; /* your image */
-    background-size: cover; /* ensures full coverage */
-    color: #333; /* softer text */
+
+    background: url("webiml2.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    color: #333;
+
     position: relative;
 }
 
-/* Glass Card */
+
+/* =========================================
+   BACKGROUND OVERLAY
+   ========================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,190,220,0.18),
+            transparent 40%
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   GLASS CARD
+   ========================================= */
+
 .container {
     position: relative;
+
     z-index: 2;
+
     width: 90%;
     max-width: 700px;
+
     padding: 60px;
+
+    margin: 30px auto;
+
     text-align: center;
-    background: rgba(255, 255, 255, 0.7); /* brighter glass for pastel background */
-    backdrop-filter: blur(12px);
+
+    background: rgba(255, 255, 255, 0.72);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
     border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 8px 35px rgba(0, 0, 0, 0.20);
 }
 
-/* Heading */
+
+/* =========================================
+   HEADING
+   ========================================= */
+
 .typing {
+    display: inline-block;
+
     font-size: 55px;
-    color: #444; /* dark gray for readability */
+
+    line-height: 1.2;
+
+    color: #444;
+
     overflow: hidden;
+
     white-space: nowrap;
+
     border-right: 3px solid #444;
+
     width: 0;
-    animation: typing 2.2s steps(25,end) forwards, blink .6s infinite;
+
+    animation:
+        typing 2.2s steps(25, end) forwards,
+        blink 0.6s infinite;
 }
 
-/* Subtitle */
+
+/* =========================================
+   SUBTITLE
+   ========================================= */
+
 h2 {
     margin-top: 25px;
+
     font-size: 28px;
+
+    line-height: 1.3;
+
     color: #555;
+
     opacity: 0;
-    animation: fadeUp 1s ease forwards;
+
+    animation:
+        fadeUp 1s ease forwards;
+
     animation-delay: 1.7s;
 }
 
-/* Paragraph */
+
+/* =========================================
+   PARAGRAPH
+   ========================================= */
+
 .container p {
     margin-top: 30px;
+
     font-size: 18px;
+
     line-height: 30px;
+
     color: #333;
+
     opacity: 0;
-    animation: fadeUp 1s ease forwards;
-    animation-delay:1s;
+
+    animation:
+        fadeUp 1s ease forwards;
+
+    animation-delay: 1s;
 }
 
-/* Button */
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
 .magic-btn {
+    display: inline-block;
+
     margin-top: 40px;
+
     padding: 15px 35px;
+
     font-size: 18px;
+
     border: none;
+
     border-radius: 40px;
+
     cursor: pointer;
-    background: #b8baf3; /* soft pink pastel */
+
+    background: #b8baf3;
+
     color: #fff;
+
     font-weight: bold;
-    transition: .1s;
+
+    transition: 0.3s ease;
+
     opacity: 0;
-    animation: fadeUp 1s forwards 3.8s, pulse 2s infinite;
+
+    animation:
+        fadeUp 1s forwards 3.8s,
+        pulse 2s infinite;
 }
+
+
+/* BUTTON HOVER */
 
 .magic-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
+
     background: #8da9ef;
-    box-shadow: 0 0 25px #657aff;
+
+    box-shadow:
+        0 0 25px #657aff;
 }
 
-/* Footer */
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
 footer {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
+    position: relative;
+
     z-index: 2;
+
+    width: 100%;
+
+    text-align: center;
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+
+    padding: 0 15px;
+
+    font-size: 15px;
+
+    line-height: 20px;
+
     color: #444;
 }
 
-/* Animations */
+
+/* =========================================
+   TYPING ANIMATION
+   ========================================= */
+
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+
 }
+
+
+/* =========================================
+   BLINK ANIMATION
+   ========================================= */
 
 @keyframes blink {
-    50% { border-color: transparent; }
+
+    50% {
+        border-color: transparent;
+    }
+
 }
+
+
+/* =========================================
+   FADE UP
+   ========================================= */
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }
 
+
+/* =========================================
+   BUTTON PULSE
+   ========================================= */
+
 @keyframes pulse {
-    0% { box-shadow: 0 0 5px #dd99b7; }
-    50% { box-shadow: 0 0 25px #e09eb8; }
-    100% { box-shadow: 0 0 5px #e8b2cb; }
+
+    0% {
+        box-shadow:
+            0 0 5px #dd99b7;
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px #e09eb8;
+    }
+
+    100% {
+        box-shadow:
+            0 0 5px #e8b2cb;
+    }
+
 }
-/* =====================================
-   MOBILE RESPONSIVE - FINAL
-   ===================================== */
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
 
 @media (max-width: 768px) {
 
     body {
+
         min-height: 100vh;
+
         height: auto;
+
         overflow-x: hidden;
+
         overflow-y: auto;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+
         align-items: center;
 
-        padding: 25px 15px 70px;
+        padding:
+            25px
+            15px
+            40px;
 
-        background-position: center center;
-        background-attachment: scroll;
+        background-position:
+            center center;
+
+        background-attachment:
+            scroll;
     }
 
-    /* Glass Card */
+
+    /* MOBILE GLASS CARD */
 
     .container {
-        width: 100%;
-        max-width: 400px;
 
-        padding: 35px 22px;
-        margin: 15px auto;
+        width: 100%;
+
+        max-width: 420px;
+
+        padding:
+            35px
+            22px;
+
+        margin:
+            20px auto
+            15px;
 
         border-radius: 25px;
 
-        background: rgba(255,255,255,0.72);
+        background:
+            rgba(255, 255, 255, 0.78);
 
-        backdrop-filter: blur(12px);
+        backdrop-filter:
+            blur(14px);
+
+        -webkit-backdrop-filter:
+            blur(14px);
 
         box-shadow:
-            0 8px 30px rgba(0,0,0,0.18);
+            0 8px 30px
+            rgba(0, 0, 0, 0.18);
     }
 
-    /* Heading */
+
+    /* MOBILE HEADING */
 
     .typing {
+
+        display: block;
+
+        width: 100%;
+
         font-size: 36px;
+
         line-height: 1.2;
 
         white-space: normal;
-        overflow: visible;
 
-        width: auto;
+        overflow: visible;
 
         border-right: none;
 
-        animation: fadeUp 1s ease forwards;
+        animation:
+            fadeUp 1s ease forwards;
     }
 
-    /* Subtitle */
+
+    /* MOBILE SUBTITLE */
 
     h2 {
+
         margin-top: 22px;
 
         font-size: 23px;
+
         line-height: 1.35;
 
         color: #555;
 
         opacity: 0;
 
-        animation: fadeUp 1s ease forwards;
-        animation-delay: 1.2s;
+        animation:
+            fadeUp 1s ease forwards;
+
+        animation-delay:
+            1.2s;
     }
 
-    /* Paragraph */
+
+    /* MOBILE PARAGRAPH */
 
     .container p {
+
         margin-top: 22px;
 
         font-size: 17px;
+
         line-height: 28px;
 
         color: #333;
 
         opacity: 0;
 
-        animation: fadeUp 1s ease forwards;
-        animation-delay: 1.8s;
+        animation:
+            fadeUp 1s ease forwards;
+
+        animation-delay:
+            1.8s;
     }
 
-    /* Button */
+
+    /* MOBILE BUTTON */
 
     .magic-btn {
+
         width: 100%;
+
         max-width: 280px;
 
         margin-top: 30px;
 
-        padding: 15px 20px;
+        padding:
+            15px
+            20px;
 
         font-size: 17px;
 
         border-radius: 40px;
-
-        opacity: 0;
-
-        animation:
-            fadeUp 1s forwards 2.5s,
-            pulse 2s infinite;
     }
 
-    /* Footer */
+
+    /* MOBILE FOOTER */
 
     footer {
+
         position: relative;
 
         width: 100%;
 
-        margin-top: 15px;
+        margin:
+            5px
+            auto
+            15px;
 
-        bottom: auto;
+        padding:
+            0
+            10px;
 
         font-size: 12px;
 
         line-height: 18px;
 
-        padding: 0 10px;
-
-        color: #444;
+        text-align: center;
     }
+
+}
+
+
+/* =========================================
+   SMALL PHONE
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    body {
+
+        padding:
+            20px
+            10px
+            30px;
+    }
+
+
+    .container {
+
+        padding:
+            30px
+            18px;
+
+        margin-top: 15px;
+    }
+
+
+    .typing {
+
+        font-size: 32px;
+
+        line-height: 1.2;
+    }
+
+
+    h2 {
+
+        font-size: 21px;
+    }
+
+
+    .container p {
+
+        font-size: 16px;
+
+        line-height: 26px;
+    }
+
+
+    .magic-btn {
+
+        font-size: 16px;
+
+        padding:
+            14px
+            18px;
+    }
+
+
+    footer {
+
+        font-size: 11px;
+
+        line-height: 17px;
+    }
+
 }
