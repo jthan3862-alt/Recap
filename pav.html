@@ -213,7 +213,7 @@
 /* PHOTO 1 */
 
 .photo-1 {
-    left: 8%;
+    left: 12%;
     top: 100px;
 
     transform: rotate(-15deg);
@@ -225,7 +225,7 @@
 /* PHOTO 2 */
 
 .photo-2 {
-    right: 8%;
+    right: 12%;
     top: 180px;
 
     transform: rotate(10deg);
@@ -331,6 +331,210 @@
     }
 
 }
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .floating-photo {
+
+        width: 75px;
+        height: 75px;
+
+        border-width: 3px;
+
+        border-radius: 10px;
+
+        box-shadow:
+            0 5px 15px rgba(0,0,0,0.25);
+    }
+
+
+    /* PHOTO 1 - LEFT SIDE */
+
+    .photo-1 {
+
+        left: 2%;
+
+        top: 110px;
+
+        transform: rotate(-12deg);
+
+        animation:
+            floatPhoto1Mobile
+            5s
+            ease-in-out
+            infinite;
+    }
+
+
+    /* PHOTO 2 - RIGHT SIDE */
+
+    .photo-2 {
+
+        right: 2%;
+
+        top: 135px;
+
+        transform: rotate(10deg);
+
+        animation:
+            floatPhoto2Mobile
+            6s
+            ease-in-out
+            infinite;
+    }
+
+
+    /* PHOTO 3 */
+
+    .photo-3 {
+
+        left: 3%;
+
+        top: 650px;
+
+        width: 70px;
+        height: 70px;
+
+        transform: rotate(8deg);
+
+        animation:
+            floatPhoto3Mobile
+            5.5s
+            ease-in-out
+            infinite;
+    }
+
+
+    /* PHOTO 4 */
+
+    .photo-4 {
+
+        right: 3%;
+
+        top: 750px;
+
+        width: 70px;
+        height: 70px;
+
+        transform: rotate(-10deg);
+
+        animation:
+            floatPhoto4Mobile
+            6s
+            ease-in-out
+            infinite;
+    }
+
+
+    /* PHOTO 5 */
+
+    .photo-5 {
+
+        left: 4%;
+
+        top: 1050px;
+
+        width: 70px;
+        height: 70px;
+
+        transform: rotate(-8deg);
+
+        animation:
+            floatPhoto5Mobile
+            5.5s
+            ease-in-out
+            infinite;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE PHOTO ANIMATIONS
+   ========================================= */
+
+@keyframes floatPhoto1Mobile {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-12deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(-7deg);
+    }
+}
+
+
+@keyframes floatPhoto2Mobile {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(10deg);
+    }
+
+    50% {
+        transform:
+            translateY(10px)
+            rotate(15deg);
+    }
+}
+
+
+@keyframes floatPhoto3Mobile {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(8deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+    }
+}
+
+
+@keyframes floatPhoto4Mobile {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-10deg);
+    }
+
+    50% {
+        transform:
+            translateY(10px)
+            rotate(-5deg);
+    }
+}
+
+
+@keyframes floatPhoto5Mobile {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(-3deg);
+    }
+}
+
 /* ================= FINAL DIARY NOTE ================= */
 
 .final-note {
@@ -604,15 +808,11 @@
          Naama enna ennamo loosuthanama paniruko,Maturity meaning eh theriyathu, oru plan pota theriyathu,adu ithu enna pana poromnu thriyathu mukiyama map pakka thriyathu,ennane theriyama fllow la poitu irupe.Jolly ya siruchu pesi happy iruthom...But 
         </p>
             <p>
-        Naa ungala neraiya time expect panni iruke,Naa oru plan potu atha panuvom solli torture paniruke.Neega silla neram enkita en pesuiganu kuda feel panirukalam.Enaku ipa theriuthu en naa frds gang iruka mudiyathunu,Naa ethukum set aga mate pola... eilathukum sorry. one piece la oru say iruku       
+        Naa ungala neraiya time expect panni iruke,Naa oru plan potu atha panuvom solli torture paniruke.Neega silla neram enkita en pesuiganu kuda feel panirukalam.Enaku ipa theriuthu en naa frds gang iruka mudiyathunu,Naa ethukum set aga mate pola... eilathukum sorry.      
          </p>
-    <div class="signature">
-         "A man dies only when people forget him"          
-         </div>
-
-
+   
         <p>
-          Ahh..ithukaiparam naam pathupomanu thriyala and last oru 👇
+          Ahh..ithukaiparam naam eipo pathupomanu thriyala and last oru 👇
         </p>
         <section class="final-thankyou">
 
